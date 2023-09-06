@@ -1,21 +1,38 @@
 {
-  "name": "pokemon-sleep-recipe-tool",
-  "version": "1.0.6.20230905",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@mdi/font": "7.0.96",
-    "roboto-fontface": "*",
-    "vue": "^3.2.0",
-    "vuetify": "^3.0.0",
-    "webfontloader": "^1.0.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^4.0.0",
-    "vite": "^4.2.0",
-    "vite-plugin-vuetify": "^1.0.0"
-  }
+    "name": "PokemonSleepRecipeTool",
+    "version": "1.0.6.20230905",
+    "description": "Pokemon Sleep Recipe Tool is a tool that make it easier to track your Pokémon Sleep Recipe Collections.",
+    "keywords": [
+        "Pokemon",
+        "Pokemon Sleep",
+        "PokemonSleep",
+        "Pokemon-Sleep",
+        "Pokémon",
+        "Pokémon Sleep",
+        "PokémonSleep",
+        "Pokémon-Sleep",
+        "Recipe"
+    ],
+    "license": "AGPL-3.0-only",
+    "homepage": "https://github.com/catscarlet/pokemon-sleep-recipe-tool",
+    "bugs": {
+        "url": "https://github.com/catscarlet/pokemon-sleep-recipe-tool/issues"
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@mdi/font": "7.0.96",
+        "roboto-fontface": "*",
+        "vue": "^3.2.0",
+        "vuetify": "^3.0.0",
+        "webfontloader": "^1.0.0"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^4.0.0",
+        "vite": "^4.2.0",
+        "vite-plugin-vuetify": "^1.0.0"
+    }
 }
