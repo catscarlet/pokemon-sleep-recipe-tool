@@ -1,19 +1,11 @@
 <template>
 <v-app>
     <v-main>
-        <!--
-        <v-app-bar scroll-behavior="hide" density="compact" scroll-threshold="0">
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-            <v-app-bar-title>Application</v-app-bar-title>
-        </v-app-bar>
-    -->
         <v-system-bar absolute>
-
-
+            <a :href="homepage" target="_blank" rel="noopener">Homepage</a>
             <span class="ms-2">v{{ version }}</span>
         </v-system-bar>
-
 
         <PokemonSleepCookingTool />
     </v-main>
@@ -24,19 +16,21 @@
 import PokemonSleepCookingTool from '@/components/PokemonSleepCookingTool.vue';
 import config from '../package.json';
 const VERSION = config.version;
+const HOMEPAGE = config.homepage;
 
 export default {
     data() {
         return {
+            homepage: HOMEPAGE,
             version: VERSION,
         };
     },
+
     components: {PokemonSleepCookingTool},
 };
 </script>
 
 <style scoped>
 .v-application {
-    font-family: "CJK Quote Font", "CJK Font";
 }
 </style>
