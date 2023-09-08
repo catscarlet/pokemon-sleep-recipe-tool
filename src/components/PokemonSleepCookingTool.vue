@@ -2,7 +2,7 @@
 <div>
     <v-container>
         <v-row no-gutters align="end">
-            <v-col v-for="(ingredient, name, index) in ingredients" :key="index" cols="1">
+            <v-col v-for="(ingredient, name, index_ingredients) in ingredients" :key="index_ingredients" cols="1">
                 <v-card>
                     <v-card-text>
                         <!-- <v-avatar color="surface-variant" rounded="0"> -->
@@ -10,13 +10,12 @@
                         <!-- </v-avatar> -->
 
                         <p class="ingredient-name">
-                            <!-- {{ index + ':' + ingredient.name }}+ -->
                             {{ ingredient.name }}
                         </p>
 
                     </v-card-text>
 
-                    <v-text-field v-model="ingredient.value" type="number" :tabindex="index + 10">
+                    <v-text-field v-model="ingredient.value" type="number" :tabindex="index_ingredients + 10">
                         <!-- <template #details style="display: none"></template> -->
                     </v-text-field>
 
@@ -61,13 +60,12 @@
 
     <v-container>
         <v-row no-gutters>
-            <v-col v-for="(recipeCategory, name, index) in recipes" :key="index" cols="12" md="6" lg="4">
+            <v-col v-for="(recipeCategory, name, recipes_index) in recipes" :key="recipes_index" cols="12" md="6" lg="4">
                 <v-card>
                     <v-list lines="false">
 
-
-
-                        <v-list-item v-for="(recipe, name, index) in recipeCategory" :key="index" :class="recipe.able ? 'able' : 'unable'" v-show="true || recipe.able || showAll" :base-color="getRecipeColor(recipe.able)">
+                        <v-list-item v-for="(recipe, name, index_recipeCategory) in recipeCategory" :key="index_recipeCategory" :class="recipe.able ? 'able' : 'unable'" v-show="true || recipe.able || showAll" :base-color="getRecipeColor(recipe.able)"
+                            color="#d3d3d3" :active="recipe.collected">
 
                             <v-list-item-title>
 
@@ -82,7 +80,7 @@
                             </v-list-item-title>
 
                             <v-list-item-subtitle>
-                                <div v-for="(recipe_value, recipe_ingredient, index2) in recipe.ingredients" :key="index2">
+                                <div v-for="(recipe_value, recipe_ingredient, index_ingredients) in recipe.ingredients" :key="index_ingredients">
 
                                     <span :style="'color: ' + getChipColor(recipe_value, recipe_ingredient)">[{{this.ingredients[recipe_ingredient].value}}]</span>
 
@@ -96,11 +94,9 @@
 
                                 </div>
                             </v-list-item-subtitle>
-                            <!--
                             <div style="display: inline-flex; width: 80%;">
-                                <v-checkbox-btn color="yellow" value="red" label="wanted" hide-details></v-checkbox-btn>
-                                <v-checkbox-btn color="green" value="red" label="done" hide-details></v-checkbox-btn>
-                            </div> -->
+                                <v-checkbox-btn color="success" tabindex="-1" v-model="recipe.collected" label="collected" hide-details></v-checkbox-btn>
+                            </div>
 
                             <v-divider></v-divider>
 
@@ -113,6 +109,18 @@
             </v-col>
         </v-row>
     </v-container>
+
+    <v-snackbar v-model="snackbar" :color="snackbar_payload.color" timeout="2000">
+        {{ snackbar_payload.text }}
+
+        <template v-slot:actions>
+            <v-btn variant="text" @click="snackbar = false">
+                Close
+            </v-btn>
+        </template>
+
+    </v-snackbar>
+
 </div>
 </template>
 
@@ -222,6 +230,12 @@ export default {
             pot_size: 15,
             sunday_mode: false,
             showAll: true,
+
+            snackbar: false,
+            snackbar_payload: {
+                text: '',
+                color: '',
+            },
         };
     },
     methods: {
@@ -229,31 +243,58 @@ export default {
             // console.log(this.ingredients);
         },
         save() {
-            let payload = JSON.stringify(this.ingredients);
-            //console.log(payload);
+            let ingredients_payload = JSON.stringify(this.ingredients);
+            let recipes_payload = JSON.stringify(this.recipes);
 
-            localStorage.setItem('pokemonsleeprecipetool_ingredients_payload', payload);
+            localStorage.setItem('pokemonsleeprecipetool_ingredients_payload', ingredients_payload);
             localStorage.setItem('pokemonsleeprecipetool_pot_size_payload', this.pot_size);
+            localStorage.setItem('pokemonsleeprecipetool_recipes_payload', recipes_payload);
+
+            this.snackbar_payload.text = 'data saved';
+            this.snackbar_payload.color = 'info';
+            this.snackbar = true;
         },
         load() {
             this.autoCalc = false;
-            let str = localStorage.getItem('pokemonsleeprecipetool_ingredients_payload');
-            let payload = JSON.parse(str);
-            //console.log(payload);
 
-            for (const savedIngredient in payload) {
-                this.ingredients[savedIngredient].value = payload[savedIngredient].value;
+            let str1 = localStorage.getItem('pokemonsleeprecipetool_ingredients_payload');
+            let str2 = localStorage.getItem('pokemonsleeprecipetool_pot_size_payload');
+            let str3 = localStorage.getItem('pokemonsleeprecipetool_recipes_payload');
+
+            if (!str1 || !str2 || !str3) {
+                //no saved data
+                console.log('no saved data or saved data corrupted');
+
+                this.snackbar_payload.text = 'no saved data or saved data corrupted';
+                this.snackbar_payload.color = 'error';
+                this.snackbar = true;
+
+                return false;
             }
 
-            let pot_size_payload = localStorage.getItem('pokemonsleeprecipetool_pot_size_payload');
-
-            //console.log(pot_size_payload);
-
-            if (pot_size_payload) {
-                this.pot_size = pot_size_payload;
+            let ingredients_payload = JSON.parse(str1);
+            for (const savedIngredient in ingredients_payload) {
+                this.ingredients[savedIngredient].value = ingredients_payload[savedIngredient].value;
             }
+
+            let pot_size_payload = str2;
+            this.pot_size = pot_size_payload;
+
+            let recipes_payload = JSON.parse(str3);
+            for (const recipeCategory in recipes_payload) {
+                for (const recipe in recipes_payload[recipeCategory]) {
+                    this.recipes[recipeCategory][recipe].collected = recipes_payload[recipeCategory][recipe].collected;
+                }
+            }
+
 
             this.autoCalc = true;
+
+            this.snackbar_payload.text = 'saved data loaded';
+            this.snackbar_payload.color = 'success';
+            this.snackbar = true;
+
+
             //this.calc();
             //this.ingredients = {};
             //this.ingredients = payload;
@@ -408,18 +449,6 @@ export default {
             },
             deep: true,
         },
-        showAll: {
-            handler(new_val, old_val) {
-                /*
-                console.log('old_val:');
-                console.log(old_val);
-                console.log('new_val:');
-                console.log(new_val);
-                //console.log(this.ingredients);
-                */
-            },
-            deep: false,
-        },
     },
 };
 </script>
@@ -428,7 +457,7 @@ export default {
 .able {}
 
 .unable {
-    background-color: gray;
+    /* background-color: grey; */
 }
 
 .hide {

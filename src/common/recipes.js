@@ -4,6 +4,7 @@ export const GetRecipes = () =>  {
             'name': 'Fancy Apple Curry',
             'lowercase': 'fancyapplecurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Fancy Apple': 7,
             },
@@ -12,6 +13,7 @@ export const GetRecipes = () =>  {
             'name': 'Grilled Tail Curry',
             'lowercase': 'grilledtailcurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Slowpoke Tail': 8,
                 'Fiery Herb': 25,
@@ -21,6 +23,7 @@ export const GetRecipes = () =>  {
             'name': 'Solar Power Tomato Curry',
             'lowercase': 'solarpowertomatocurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Snoozy Tomato': 10,
                 'Fiery Herb': 5,
@@ -30,6 +33,7 @@ export const GetRecipes = () =>  {
             'name': 'Dream Eater Butter Curry',
             'lowercase': 'dreameaterbuttercurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Soft Potato': 18,
                 'Snoozy Tomato': 15,
@@ -41,6 +45,7 @@ export const GetRecipes = () =>  {
             'name': 'Spicy Leek Curry',
             'lowercase': 'spicyleekcurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Large Leek': 14,
                 'Warming Ginger': 10,
@@ -51,6 +56,7 @@ export const GetRecipes = () =>  {
             'name': 'Spore Mushroom Curry',
             'lowercase': 'sporemushroomcurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Tasty Mushroom': 14,
                 'Soft Potato': 9,
@@ -60,6 +66,7 @@ export const GetRecipes = () =>  {
             'name': 'Egg Bomb Curry',
             'lowercase': 'eggbombcurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Honey': 12,
                 'Fancy Apple': 11,
@@ -71,6 +78,7 @@ export const GetRecipes = () =>  {
             'name': 'Hearty Cheeseburger Curry',
             'lowercase': 'heartycheeseburgercurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Moomoo Milk': 8,
                 'Bean Sausage': 8,
@@ -80,6 +88,7 @@ export const GetRecipes = () =>  {
             'name': 'Soft Potato Chowder',
             'lowercase': 'softpotatochowder',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Moomoo Milk': 10,
                 'Soft Potato': 8,
@@ -90,6 +99,7 @@ export const GetRecipes = () =>  {
             'name': 'Simple Chowder',
             'lowercase': 'simplechowder',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Moomoo Milk': 7,
             },
@@ -98,6 +108,7 @@ export const GetRecipes = () =>  {
             'name': 'Beanburger Curry',
             'lowercase': 'beanburgercurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Bean Sausage': 7,
             },
@@ -106,6 +117,7 @@ export const GetRecipes = () =>  {
             'name': 'Mild Honey Curry',
             'lowercase': 'mildhoneycurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Honey': 7,
             },
@@ -114,6 +126,7 @@ export const GetRecipes = () =>  {
             'name': 'Ninja Curry',
             'lowercase': 'ninjacurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Greengrass Soybeans': 15,
                 'Bean Sausage': 9,
@@ -125,6 +138,7 @@ export const GetRecipes = () =>  {
             'name': 'Drought Katsu Curry',
             'lowercase': 'droughtkatsucurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Bean Sausage': 10,
                 'Pure Oil': 5,
@@ -134,6 +148,7 @@ export const GetRecipes = () =>  {
             'name': 'Melty Omelette Curry',
             'lowercase': 'meltyomelettecurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Fancy Egg': 10,
                 'Snoozy Tomato': 6,
@@ -143,6 +158,7 @@ export const GetRecipes = () =>  {
             'name': 'Bulk Up Bean Curry',
             'lowercase': 'bulkupbeancurry',
             'category': 'Curry',
+            'collected': false,
             'ingredients': {
                 'Greengrass Soybeans': 12,
                 'Bean Sausage': 6,
@@ -157,6 +173,7 @@ export const GetRecipes = () =>  {
             'name': 'Slowpoke Tail Pepper Salad',
             'lowercase': 'slowpoketailpeppersalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Slowpoke Tail': 10,
                 'Fiery Herb': 10,
@@ -167,6 +184,7 @@ export const GetRecipes = () =>  {
             'name': 'Spore Mushroom Salad',
             'lowercase': 'sporemushroomsalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Tasty Mushroom': 17,
                 'Snoozy Tomato': 8,
@@ -177,6 +195,7 @@ export const GetRecipes = () =>  {
             'name': 'Snow Cloak Caesar Salad',
             'lowercase': 'snowcloakcaesarsalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Moomoo Milk': 10,
                 'Bean Sausage': 6,
@@ -186,6 +205,7 @@ export const GetRecipes = () =>  {
             'name': 'Gluttony Potato Salad',
             'lowercase': 'gluttonypotatosalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Soft Potato': 14,
                 'Fancy Egg': 9,
@@ -197,6 +217,7 @@ export const GetRecipes = () =>  {
             'name': 'Water Veil Tofu Salad',
             'lowercase': 'waterveiltofusalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Greengrass Soybeans': 10,
                 'Snoozy Tomato': 6,
@@ -206,6 +227,7 @@ export const GetRecipes = () =>  {
             'name': 'Superpower Extreme Salad',
             'lowercase': 'superpowerextremesalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Bean Sausage': 9,
                 'Warming Ginger': 6,
@@ -217,6 +239,7 @@ export const GetRecipes = () =>  {
             'name': 'Bean Ham Salad',
             'lowercase': 'beanhamsalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Bean Sausage': 8,
             },
@@ -225,6 +248,7 @@ export const GetRecipes = () =>  {
             'name': 'Snoozy Tomato Salad',
             'lowercase': 'snoozytomatosalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Snoozy Tomato': 8,
             },
@@ -233,6 +257,7 @@ export const GetRecipes = () =>  {
             'name': 'Moomoo Caprese Salad',
             'lowercase': 'moomoocapresesalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Moomoo Milk': 12,
                 'Snoozy Tomato': 6,
@@ -243,6 +268,7 @@ export const GetRecipes = () =>  {
             'name': 'Contrary Chocolate Meat Salad',
             'lowercase': 'contrarychocolatemeatsalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Soothing Cacao': 14,
                 'Bean Sausage': 9,
@@ -252,6 +278,7 @@ export const GetRecipes = () =>  {
             'name': 'Overheat Ginger Salad',
             'lowercase': 'overheatgingersalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Fiery Herb': 17,
                 'Warming Ginger': 10,
@@ -262,6 +289,7 @@ export const GetRecipes = () =>  {
             'name': 'Fancy Apple Salad',
             'lowercase': 'fancyapplesalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Fancy Apple': 8,
             },
@@ -270,6 +298,7 @@ export const GetRecipes = () =>  {
             'name': 'Immunity Leek Salad',
             'lowercase': 'immunityleeksalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Large Leek': 10,
                 'Warming Ginger': 5,
@@ -279,6 +308,7 @@ export const GetRecipes = () =>  {
             'name': 'Dazzling Apple Cheese Salad',
             'lowercase': 'dazzlingapplecheesesalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Fancy Apple': 15,
                 'Moomoo Milk': 5,
@@ -289,6 +319,7 @@ export const GetRecipes = () =>  {
             'name': 'Ninja Salad',
             'lowercase': 'ninjasalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Large Leek': 15,
                 'Greengrass Soybeans': 15,
@@ -300,6 +331,7 @@ export const GetRecipes = () =>  {
             'name': 'Heat Wave Tofu Salad',
             'lowercase': 'heatwavetofusalad',
             'category': 'Salad',
+            'collected': false,
             'ingredients': {
                 'Greengrass Soybeans': 10,
                 'Fiery Herb': 6,
@@ -312,6 +344,7 @@ export const GetRecipes = () =>  {
             'name': 'Fluffy Sweet Potatoes',
             'lowercase': 'fluffysweetpotatoes',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Soft Potato': 9,
                 'Moomoo Milk': 5,
@@ -321,6 +354,7 @@ export const GetRecipes = () =>  {
             'name': 'Steadfast Ginger Cookies',
             'lowercase': 'steadfastgingercookies',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Honey': 14,
                 'Warming Ginger': 12,
@@ -332,6 +366,7 @@ export const GetRecipes = () =>  {
             'name': 'Fancy Apple Juice',
             'lowercase': 'fancyapplejuice',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Fancy Apple': 8,
             },
@@ -340,6 +375,7 @@ export const GetRecipes = () =>  {
             'name': 'Craft Soda Pop',
             'lowercase': 'craftsodapop',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Honey': 9,
             },
@@ -348,6 +384,7 @@ export const GetRecipes = () =>  {
             'name': 'Ember Ginger Tea',
             'lowercase': 'embergingertea',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Warming Ginger': 9,
                 'Fancy Apple': 7,
@@ -357,6 +394,7 @@ export const GetRecipes = () =>  {
             'name': 'Jigglypuff\'s Fruity Flan',
             'lowercase': 'jigglypuffsfruityflan',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Honey': 20,
                 'Fancy Egg': 15,
@@ -368,6 +406,7 @@ export const GetRecipes = () =>  {
             'name': 'Lovely Kiss Smoothie',
             'lowercase': 'lovelykisssmoothie',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Fancy Apple': 11,
                 'Moomoo Milk': 9,
@@ -379,6 +418,7 @@ export const GetRecipes = () =>  {
             'name': 'Lucky Chant Apple Pie',
             'lowercase': 'luckychantapplepie',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Fancy Apple': 12,
                 'Moomoo Milk': 4,
@@ -388,6 +428,7 @@ export const GetRecipes = () =>  {
             'name': 'Neroli\'s Restorative Tea',
             'lowercase': 'nerolisrestorativetea',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Warming Ginger': 11,
                 'Fancy Apple': 15,
@@ -398,6 +439,7 @@ export const GetRecipes = () =>  {
             'name': 'Sweet Scent Chocolate Cake',
             'lowercase': 'sweetscentchocolatecake',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Honey': 9,
                 'Soothing Cacao': 8,
@@ -408,6 +450,7 @@ export const GetRecipes = () =>  {
             'name': 'Warm Moomoo Milk',
             'lowercase': 'warmmoomoomilk',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Moomoo Milk': 7,
             },
@@ -416,6 +459,7 @@ export const GetRecipes = () =>  {
             'name': 'Cloud Nine Soy Cake',
             'lowercase': 'cloudninesoycake',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Fancy Egg': 8,
                 'Greengrass Soybeans': 7,
@@ -425,6 +469,7 @@ export const GetRecipes = () =>  {
             'name': 'Hustle Protein Smoothie',
             'lowercase': 'hustleproteinsmoothie',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Greengrass Soybeans': 15,
                 'Soothing Cacao': 8,
@@ -434,6 +479,7 @@ export const GetRecipes = () =>  {
             'name': 'Stalwart Vegetable Juice',
             'lowercase': 'stalwartvegetablejuice',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Snoozy Tomato': 9,
                 'Fancy Apple': 7,
@@ -443,6 +489,7 @@ export const GetRecipes = () =>  {
             'name': 'Big Malasada',
             'lowercase': 'bigmalasada',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Pure Oil': 10,
                 'Moomoo Milk': 7,
@@ -453,6 +500,7 @@ export const GetRecipes = () =>  {
             'name': 'Huge Power Soy Donuts',
             'lowercase': 'hugepowersoydonuts',
             'category': 'Dessert',
+            'collected': false,
             'ingredients': {
                 'Pure Oil': 9,
                 'Greengrass Soybeans': 6,

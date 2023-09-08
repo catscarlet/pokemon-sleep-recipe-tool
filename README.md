@@ -20,12 +20,13 @@ You can click the save button to save your ingredient info into your [Browser's 
 
 ## Todos
 
-1. Pot size filter and Sunday feature
-2. Learned and Wanted filter
-3. Ingredient source informations
-4. Better Typography
-5. Mobile Compatibility
-6. Internationalization Support
+1. Pot size filter and Sunday feature.
+2. ~~Learned~~ and Wanted filter. (Collected filter done in 1.0.6.20230908)
+3. Ingredient source informations.
+4. Better Typography.
+5. Mobile Compatibility.
+6. Internationalization Support.
+7. Filter checkbox keyboard tabindex support. Related to a vuetify issue: vuetifyjs/vuetify#18223
 
 ## Development
 
