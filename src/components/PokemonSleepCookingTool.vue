@@ -1,5 +1,15 @@
 <template>
 <div>
+
+    <v-system-bar>
+        <a :href="homepage" target="_blank" rel="noopener">Homepage</a>
+
+        <v-btn size="small" variant="outlined" color="primary" @click="save">save</v-btn>
+        <v-btn size="small" variant="outlined" color="primary" @click="load">load</v-btn>
+
+        <span class="ms-2">v{{ version }}</span>
+    </v-system-bar>
+
     <v-container>
         <v-row no-gutters align="end">
             <v-col v-for="(ingredient, name, index_ingredients) in ingredients" :key="index_ingredients" cols="1">
@@ -26,34 +36,6 @@
                 </v-card>
             </v-col>
         </v-row>
-    </v-container>
-
-
-    <v-divider></v-divider>
-
-    <v-container>
-        <v-row>
-            <v-col cols="3">
-
-            </v-col>
-            <!--
-            <v-col cols="3">
-                <v-text-field label="Pot Size" v-model="pot_size"></v-text-field>
-            </v-col>
-        -->
-
-            <v-col cols="3">
-
-                <v-btn @click="save">save</v-btn>
-                <v-btn @click="load">load</v-btn>
-            </v-col>
-        </v-row>
-
-        <!-- <v-btn size="small" @click="calc"> calc</v-btn> -->
-
-
-
-        <!-- <v-switch label="Show All" v-model="showAll" inset color="primary"></v-switch> -->
     </v-container>
 
     <v-divider></v-divider>
@@ -126,11 +108,18 @@
 
 <script>
 import { GetRecipes } from '../common/recipes.js';
+import CONFIG from '@/../package.json';
+const VERSION = CONFIG.version;
+const HOMEPAGE = CONFIG.homepage;
+
 export default {
     props: [
     ],
     data() {
         return {
+            homepage: HOMEPAGE,
+            version: VERSION,
+
             autoCalc: true,
             //allRecipes: {},
             recipes: {},
