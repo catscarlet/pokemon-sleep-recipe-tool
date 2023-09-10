@@ -107,7 +107,7 @@
 </template>
 
 <script>
-import { GetRecipes } from '../common/recipes.js';
+import { GetIngredients, GetRecipes } from '../common/gamedatacollection.js';
 import CONFIG from '@/../package.json';
 const VERSION = CONFIG.version;
 const HOMEPAGE = CONFIG.homepage;
@@ -123,99 +123,7 @@ export default {
             autoCalc: true,
             //allRecipes: {},
             recipes: {},
-            ingredients: {
-                'Large Leek':
-                {
-                    name: 'Large Leek',
-                    lowercase: 'largeleek',
-                    value: 0,
-                },
-                'Tasty Mushroom':
-                {
-                    name: 'Tasty Mushroom',
-                    lowercase: 'tastymushroom',
-                    value: 0,
-                },
-                'Fancy Egg':
-                {
-                    name: 'Fancy Egg',
-                    lowercase: 'fancyegg',
-                    value: 0,
-                },
-                'Soft Potato':
-                {
-                    name: 'Soft Potato',
-                    lowercase: 'softpotato',
-                    value: 0,
-                },
-                'Fancy Apple':
-                {
-                    name: 'Fancy Apple',
-                    lowercase: 'fancyapple',
-                    value: 0,
-                },
-                'Fiery Herb':
-                {
-                    name: 'Fiery Herb',
-                    lowercase: 'fieryherb',
-                    value: 0,
-                },
-                'Bean Sausage':
-                {
-                    name: 'Bean Sausage',
-                    lowercase: 'beansausage',
-                    value: 0,
-                },
-                'Moomoo Milk':
-                {
-                    name: 'Moomoo Milk',
-                    lowercase: 'moomoomilk',
-                    value: 0,
-                },
-                'Honey':
-                {
-                    name: 'Honey',
-                    lowercase: 'honey',
-                    value: 0,
-                },
-                'Pure Oil':
-                {
-                    name: 'Pure Oil',
-                    lowercase: 'pureoil',
-                    value: 0,
-                },
-                'Warming Ginger':
-                {
-                    name: 'Warming Ginger',
-                    lowercase: 'warmingginger',
-                    value: 0,
-                },
-                'Snoozy Tomato':
-                {
-                    name: 'Snoozy Tomato',
-                    lowercase: 'snoozytomato',
-                    value: 0,
-                },
-                'Soothing Cacao':
-                {
-                    name: 'Soothing Cacao',
-                    lowercase: 'soothingcacao',
-                    value: 0,
-                },
-                'Slowpoke Tail':
-                {
-                    name: 'Slowpoke Tail',
-                    lowercase: 'slowpoketail',
-                    value: 0,
-                },
-                'Greengrass Soybeans':
-                {
-                    name: 'Greengrass Soybeans',
-                    lowercase: 'greengrasssoybeans',
-                    value: 0,
-                },
-
-            },
+            ingredients: {},
             pot_size: 15,
             sunday_mode: false,
             showAll: true,
@@ -384,12 +292,14 @@ export default {
                 return 'darkred';
             }
         },
+        loadIngredients() {
+            let ingredients = GetIngredients();
+            this.ingredients = ingredients;
+        },
         loadRecipes() {
             let recipes = GetRecipes();
             for (const recipeCategory in recipes) {
                 for (const recipe in recipes[recipeCategory]) {
-
-                    //console.log(recipes[recipeCategory][recipe]);
 
                     let size = 0;
 
@@ -408,6 +318,7 @@ export default {
 
     },
     mounted() {
+        this.loadIngredients();
         this.loadRecipes();
     },
     watch: {
