@@ -158,6 +158,7 @@ export default {
             let str2 = localStorage.getItem('pokemonsleeprecipetool_pot_size_payload');
             let str3 = localStorage.getItem('pokemonsleeprecipetool_recipes_payload');
 
+            /*
             if (!str1 || !str2 || !str3) {
                 //no saved data
                 console.log('no saved data or saved data corrupted');
@@ -168,22 +169,28 @@ export default {
 
                 return false;
             }
+            */
 
-            let ingredients_payload = JSON.parse(str1);
-            for (const savedIngredient in ingredients_payload) {
-                this.ingredients[savedIngredient].value = ingredients_payload[savedIngredient].value;
-            }
-
-            let pot_size_payload = str2;
-            this.pot_size = pot_size_payload;
-
-            let recipes_payload = JSON.parse(str3);
-            for (const recipeCategory in recipes_payload) {
-                for (const recipe in recipes_payload[recipeCategory]) {
-                    this.recipes[recipeCategory][recipe].collected = recipes_payload[recipeCategory][recipe].collected;
+            if (str1) {
+                let ingredients_payload = JSON.parse(str1);
+                for (const savedIngredient in ingredients_payload) {
+                    this.ingredients[savedIngredient].value = ingredients_payload[savedIngredient].value;
                 }
             }
 
+            if (str2) {
+                let pot_size_payload = str2;
+                this.pot_size = pot_size_payload;
+            }
+
+            if (str3) {
+                let recipes_payload = JSON.parse(str3);
+                for (const recipeCategory in recipes_payload) {
+                    for (const recipe in recipes_payload[recipeCategory]) {
+                        this.recipes[recipeCategory][recipe].collected = recipes_payload[recipeCategory][recipe].collected;
+                    }
+                }
+            }
 
             this.autoCalc = true;
 
