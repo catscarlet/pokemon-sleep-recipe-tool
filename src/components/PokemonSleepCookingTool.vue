@@ -7,6 +7,8 @@
         <v-btn size="small" variant="outlined" color="primary" @click="save">save</v-btn>
         <v-btn size="small" variant="outlined" color="primary" @click="load">load</v-btn>
 
+        <v-btn size="small" variant="outlined" color="primary" @click="checkWanted">wanted</v-btn>
+
         <span class="ms-2">v{{ version }}</span>
     </v-system-bar>
 
@@ -77,6 +79,7 @@
                                 </div>
                             </v-list-item-subtitle>
                             <div style="display: inline-flex; width: 80%;">
+                                <v-checkbox-btn color="orange" tabindex="-1" v-model="wanted" :value="recipe.name" label="wanted" hide-details></v-checkbox-btn>
                                 <v-checkbox-btn color="success" tabindex="-1" v-model="recipe.collected" label="collected" hide-details></v-checkbox-btn>
                             </div>
 
@@ -102,6 +105,51 @@
         </template>
 
     </v-snackbar>
+
+    <v-dialog v-model="dialog" width="auto">
+        <v-card>
+            <v-card-title>
+                Wanted
+            </v-card-title>
+
+            <v-card-text v-if="wanted.length">
+                You want: <br>
+
+                <v-list-item v-for="(recipe, name) in requiredRecipes">
+                    <v-avatar size="3.5em">
+                        <v-img class="recipe-image" :src="'image/' + recipe.category + '/' + recipe.lowercase + '.png'" alt="recipe.name.lowercase"></v-img>
+                    </v-avatar>
+
+                    <span>
+                        {{ recipe.name }} &lt;{{ recipe.size }}&gt;
+                    </span>
+
+                </v-list-item>
+
+                You will need these ingredients <br>
+
+                <div v-for="(required_ingredients_obj, required_ingredient_name, required_ingredient_index) in requiredIngredients" :key="required_ingredient_index">
+
+                    <!-- <span>[{{  required_ingredient_name  }}]</span> -->
+                    <v-avatar start>
+                        <v-img class="recipe-ingredient-image" :src="'image/Ingredient/' + required_ingredients_obj.lowercase + '.png'" alt="ingredient.lowercase"></v-img>
+                    </v-avatar>
+                    <v-chip>
+                        {{required_ingredient_name}} * {{required_ingredients_obj.value}}
+                    </v-chip>
+                </div>
+
+            </v-card-text>
+
+            <v-card-text v-else="wanted">
+                Check some Reicie you want to collect.
+            </v-card-text>
+
+            <v-card-actions>
+                <v-btn color="primary" block @click="dialog = false">Close Dialog</v-btn>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
 
 </div>
 </template>
@@ -133,6 +181,11 @@ export default {
                 text: '',
                 color: '',
             },
+
+            dialog: false,
+            wanted: [],
+            requiredRecipes: {},
+            requiredIngredients: {},
         };
     },
     methods: {
@@ -142,10 +195,12 @@ export default {
         save() {
             let ingredients_payload = JSON.stringify(this.ingredients);
             let recipes_payload = JSON.stringify(this.recipes);
+            let wanted_payload = JSON.stringify(this.wanted);
 
             localStorage.setItem('pokemonsleeprecipetool_ingredients_payload', ingredients_payload);
             localStorage.setItem('pokemonsleeprecipetool_pot_size_payload', this.pot_size);
             localStorage.setItem('pokemonsleeprecipetool_recipes_payload', recipes_payload);
+            localStorage.setItem('pokemonsleeprecipetool_wanted_payload', wanted_payload);
 
             this.snackbar_payload.text = 'data saved';
             this.snackbar_payload.color = 'info';
@@ -157,6 +212,7 @@ export default {
             let str1 = localStorage.getItem('pokemonsleeprecipetool_ingredients_payload');
             let str2 = localStorage.getItem('pokemonsleeprecipetool_pot_size_payload');
             let str3 = localStorage.getItem('pokemonsleeprecipetool_recipes_payload');
+            let str4 = localStorage.getItem('pokemonsleeprecipetool_wanted_payload');
 
             /*
             if (!str1 || !str2 || !str3) {
@@ -192,16 +248,58 @@ export default {
                 }
             }
 
+            if (str4) {
+                let wanted_payload = JSON.parse(str4);
+                this.wanted = wanted_payload;
+            }
+
             this.autoCalc = true;
 
             this.snackbar_payload.text = 'saved data loaded';
             this.snackbar_payload.color = 'success';
             this.snackbar = true;
 
-
+        },
+        checkWanted() {
+            this.dialog = true;
             //this.calc();
             //this.ingredients = {};
-            //this.ingredients = payload;
+
+            let recipes = GetRecipes();
+
+            const plainRecipe = {
+                ...recipes.Curry,
+                ...recipes.Salad,
+                ...recipes.Dessert,
+            };
+
+            let requiredIngredients = GetIngredients();
+            let requiredRecipes = {};
+
+            this.wanted.forEach((wantedRecipeName, i) => {
+                if (plainRecipe.hasOwnProperty(wantedRecipeName)) {
+
+                    let category = plainRecipe[wantedRecipeName].category;
+                    requiredRecipes[wantedRecipeName] = this.recipes[category][wantedRecipeName];
+
+                    for (const wantedIngredient in plainRecipe[wantedRecipeName].ingredients) {
+                        requiredIngredients[wantedIngredient].value = requiredIngredients[wantedIngredient].value + plainRecipe[wantedRecipeName].ingredients[wantedIngredient];
+                    }
+                } else {
+                    console(wantedRecipeName + ' Not Found!');
+                }
+            });
+
+            let requiredIngredientsTrim = {};
+
+            for (const wantedIngredient in requiredIngredients) {
+                if (requiredIngredients[wantedIngredient].value > 0) {
+                    requiredIngredientsTrim[wantedIngredient] = requiredIngredients[wantedIngredient];
+                }
+            }
+
+            this.requiredRecipes = requiredRecipes;
+            this.requiredIngredients = requiredIngredientsTrim;
         },
         /*
         getRecipeClass(able) {
