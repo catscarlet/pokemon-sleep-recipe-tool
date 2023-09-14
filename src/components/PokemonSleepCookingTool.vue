@@ -48,33 +48,18 @@
                 <v-card>
                     <v-list lines="false">
 
-                        <v-list-item v-for="(recipe, name, index_recipeCategory) in recipeCategory" :key="index_recipeCategory" :class="recipe.able ? 'able' : 'unable'" v-show="true || recipe.able || showAll" :base-color="getRecipeColor(recipe.able)"
-                            color="#d3d3d3" :active="recipe.collected">
+                        <v-list-item v-for="(recipe, name, index_recipeCategory) in recipeCategory" :key="index_recipeCategory" :active="recipe.collected" :base-color="recipe.collected ? 'grey' : ''">
 
                             <v-list-item-title>
 
-                                <v-avatar size="3.5em">
-                                    <v-img class="recipe-image" :src="'image/' + recipe.category + '/' + recipe.lowercase + '.png'" alt="recipe.name.lowercase"></v-img>
-                                </v-avatar>
-
-                                <span>
-                                    {{ recipe.name }} &lt;{{ recipe.size }}&gt;
-                                </span>
+                                <Dish :recipe="recipe" :able="recipe.able" :collected="recipe.collected"/>
 
                             </v-list-item-title>
 
                             <v-list-item-subtitle>
                                 <div v-for="(recipe_value, recipe_ingredient, index_ingredients) in recipe.ingredients" :key="index_ingredients">
 
-                                    <span :style="'color: ' + getChipColor(recipe_value, recipe_ingredient)">[{{this.ingredients[recipe_ingredient].value}}]</span>
-
-                                    <v-avatar start>
-                                        <v-img class="recipe-ingredient-image" :src="'image/Ingredient/' + this.ingredients[recipe_ingredient].lowercase + '.png'" alt="ingredient.lowercase"></v-img>
-                                    </v-avatar>
-
-                                    <v-chip :color="getChipColor(recipe_value, recipe_ingredient)">
-                                        {{recipe_ingredient}} * {{recipe_value}}
-                                    </v-chip>
+                                    <Ingredient :ingredient_recipe_value="recipe_value" :ingredient_name="recipe_ingredient" :ingredients="ingredients" :collected="recipe.collected"/>
 
                                 </div>
                             </v-list-item-subtitle>
@@ -116,13 +101,7 @@
                 You want: <br>
 
                 <v-list-item v-for="(recipe, name) in requiredRecipes">
-                    <v-avatar size="3.5em">
-                        <v-img class="recipe-image" :src="'image/' + recipe.category + '/' + recipe.lowercase + '.png'" alt="recipe.name.lowercase"></v-img>
-                    </v-avatar>
-
-                    <span>
-                        {{ recipe.name }} &lt;{{ recipe.size }}&gt;
-                    </span>
+                    <Dish :recipe="recipe" />
 
                 </v-list-item>
 
@@ -130,13 +109,8 @@
 
                 <div v-for="(required_ingredients_obj, required_ingredient_name, required_ingredient_index) in requiredIngredients" :key="required_ingredient_index">
 
-                    <!-- <span>[{{  required_ingredient_name  }}]</span> -->
-                    <v-avatar start>
-                        <v-img class="recipe-ingredient-image" :src="'image/Ingredient/' + required_ingredients_obj.lowercase + '.png'" alt="ingredient.lowercase"></v-img>
-                    </v-avatar>
-                    <v-chip>
-                        {{required_ingredient_name}} * {{required_ingredients_obj.value}}
-                    </v-chip>
+                    <Ingredient :ingredient_recipe_value="required_ingredients_obj.value" :ingredient_name="required_ingredient_name" :ingredients="ingredients" />
+
                 </div>
 
             </v-card-text>
@@ -157,6 +131,10 @@
 <script>
 import { GetIngredients, GetRecipes } from '../common/gamedatacollection.js';
 import CONFIG from '@/../package.json';
+
+import Dish from '../subcomponents/Dish.vue';
+import Ingredient from '../subcomponents/Ingredient.vue';
+
 const VERSION = CONFIG.version;
 const HOMEPAGE = CONFIG.homepage;
 
@@ -188,10 +166,11 @@ export default {
             requiredIngredients: {},
         };
     },
+    components: {
+        Dish,
+        Ingredient,
+    },
     methods: {
-        whoami() {
-            // console.log(this.ingredients);
-        },
         save() {
             let ingredients_payload = JSON.stringify(this.ingredients);
             let recipes_payload = JSON.stringify(this.recipes);
@@ -352,6 +331,7 @@ export default {
 
 
         },
+        /*
         getRecipeColor(able) {
             //console.log('getRecipeColor');
             //console.log(value);
@@ -397,6 +377,7 @@ export default {
                 return 'darkred';
             }
         },
+        */
         loadIngredients() {
             let ingredients = GetIngredients();
             this.ingredients = ingredients;
