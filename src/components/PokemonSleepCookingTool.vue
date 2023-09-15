@@ -12,6 +12,7 @@
         <span class="ms-2">v{{ version }}</span>
     </v-system-bar>
 
+    <!-- Main ingredients Part -->
     <v-container>
         <v-row no-gutters align="end">
             <v-col v-for="(ingredient, name, index_ingredients) in ingredients" :key="index_ingredients" cols="1">
@@ -28,7 +29,6 @@
                     </v-card-text>
 
                     <v-text-field v-model="ingredient.value" type="number" :tabindex="index_ingredients + 10">
-                        <!-- <template #details style="display: none"></template> -->
                     </v-text-field>
 
                     <v-card-actions>
@@ -42,6 +42,7 @@
 
     <v-divider></v-divider>
 
+    <!-- Main Recipe Part -->
     <v-container>
         <v-row no-gutters>
             <v-col v-for="(recipeCategory, name, recipes_index) in recipes" :key="recipes_index" cols="12" md="6" lg="4">
@@ -80,6 +81,7 @@
         </v-row>
     </v-container>
 
+    <!-- Notice Part -->
     <v-snackbar v-model="snackbar" :color="snackbar_payload.color" timeout="2000">
         {{ snackbar_payload.text }}
 
@@ -91,6 +93,7 @@
 
     </v-snackbar>
 
+    <!-- Wanted Modal Part -->
     <v-dialog v-model="dialog" width="auto">
         <v-card>
             <v-card-title>
@@ -116,7 +119,7 @@
             </v-card-text>
 
             <v-card-text v-else="wanted">
-                Check some Reicie you want to collect.
+                Check the recipes you want to collect.
             </v-card-text>
 
             <v-card-actions>
@@ -193,19 +196,6 @@ export default {
             let str3 = localStorage.getItem('pokemonsleeprecipetool_recipes_payload');
             let str4 = localStorage.getItem('pokemonsleeprecipetool_wanted_payload');
 
-            /*
-            if (!str1 || !str2 || !str3) {
-                //no saved data
-                console.log('no saved data or saved data corrupted');
-
-                this.snackbar_payload.text = 'no saved data or saved data corrupted';
-                this.snackbar_payload.color = 'error';
-                this.snackbar = true;
-
-                return false;
-            }
-            */
-
             if (str1) {
                 let ingredients_payload = JSON.parse(str1);
                 for (const savedIngredient in ingredients_payload) {
@@ -241,8 +231,6 @@ export default {
         },
         checkWanted() {
             this.dialog = true;
-            //this.calc();
-            //this.ingredients = {};
 
             let recipes = GetRecipes();
 
@@ -302,82 +290,20 @@ export default {
             //-2 not enough pot_size
             //-2 not enough pot_size but possible when sunday
             for (const recipeCategory in this.recipes) {
-                //console.log(recipeCategory);
                 for (const recipe in this.recipes[recipeCategory]) {
-
-                    //console.log(this.recipes[recipeCategory]);
-                    //console.log(recipe);
 
                     this.recipes[recipeCategory][recipe].able = 1;
 
                     for (const ingredient in this.recipes[recipeCategory][recipe].ingredients) {
-                        //console.log(ingredient);
-                        //console.log(this.recipes[recipe].ingredients[ingredient]);
-                        //console.log(this.ingredients[ingredient].value);
-
                         if (this.ingredients[ingredient].value < this.recipes[recipeCategory][recipe].ingredients[ingredient]) {
                             //not enough ingredients, unable.
                             this.recipes[recipeCategory][recipe].able = -1;
-                            //console.log('unable to make: ' + recipe);
                             break;
-                        } else {
-                            //console.log('continue');
                         }
                     }
-
-                    //console.log(this.recipes[recipe].able);
                 }
             }
-
-
         },
-        /*
-        getRecipeColor(able) {
-            //console.log('getRecipeColor');
-            //console.log(value);
-            //console.log(able);
-            //console.log(this.ingredients[ingredient].value);
-            if (false) {
-                //learned
-                return 'grey';
-            }
-
-            if (able === 1) {
-
-                return 'green';
-
-            } else {
-                if (false) {
-
-
-                } else {
-                    return 'red';
-                }
-
-            }
-
-            //learned
-            //able
-            //unable
-
-            //not enough ingredients
-            //not enough pot
-            //not enough pot but is possible when sunday
-
-
-        },
-        getChipColor(value, ingredient) {
-            //console.log('getChipColor');
-            //console.log(value);
-            //console.log(ingredient);
-            //console.log(this.ingredients[ingredient].value);
-            if (this.ingredients[ingredient].value >= value) {
-                return '#006400';
-            } else {
-                return 'darkred';
-            }
-        },
-        */
         loadIngredients() {
             let ingredients = GetIngredients();
             this.ingredients = ingredients;
@@ -393,15 +319,13 @@ export default {
                         size = size + recipes[recipeCategory][recipe].ingredients[ingredient];
                     }
                     recipes[recipeCategory][recipe].size = size;
-                    //console.log(recipes[recipeCategory][recipe]);
                 }
             }
-            //console.log(recipes);
+
             this.recipes = recipes;
         },
     },
     beforeMount() {
-
     },
     mounted() {
         this.loadIngredients();
@@ -410,28 +334,9 @@ export default {
     watch: {
         ingredients: {
             handler(new_val, old_val) {
-                /*
-                console.log('old_val:');
-                console.log(old_val);
-                console.log('new_val:');
-                console.log(new_val);
-                //console.log(this.ingredients);
-                */
                 if (this.autoCalc) {
                     this.calc();
                 }
-            },
-            deep: true,
-        },
-        recipes: {
-            handler(new_val, old_val) {
-                /*
-                console.log('old_val:');
-                console.log(old_val);
-                console.log('new_val:');
-                console.log(new_val);
-                //console.log(this.ingredients);
-                */
             },
             deep: true,
         },
