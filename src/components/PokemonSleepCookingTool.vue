@@ -2,12 +2,12 @@
 <div>
 
     <v-system-bar>
-        <a :href="homepage" target="_blank" rel="noopener">Homepage</a>
+        <a :href="homepage" tabindex="1" target="_blank" rel="noopener">Homepage</a>
 
-        <v-btn size="small" variant="outlined" color="primary" @click="save">save</v-btn>
-        <v-btn size="small" variant="outlined" color="primary" @click="load">load</v-btn>
+        <v-btn size="small" variant="outlined" color="primary" @click="save" tabindex="2">save</v-btn>
+        <v-btn size="small" variant="outlined" color="primary" @click="load" tabindex="3">load</v-btn>
 
-        <v-btn size="small" variant="outlined" color="primary" @click="checkWanted">wanted</v-btn>
+        <v-btn size="small" variant="outlined" color="primary" @click="checkWanted" tabindex="4">wanted</v-btn>
 
         <span class="ms-2">v{{ version }}</span>
     </v-system-bar>
@@ -28,12 +28,12 @@
 
                     </v-card-text>
 
-                    <v-text-field v-model="ingredient.value" type="number" :tabindex="index_ingredients + 10">
+                    <v-text-field v-model="ingredient.value" type="number" :tabindex="index_ingredients + 100">
                     </v-text-field>
 
                     <v-card-actions>
-                        <v-btn size="small" color="surface-variant" variant="text" icon="mdi-plus" @click="ingredient.value++"></v-btn>
-                        <v-btn size="small" color="surface-variant" variant="text" icon="mdi-minus" @click="ingredient.value--"></v-btn>
+                        <v-btn tabindex="-1" size="small" color="surface-variant" variant="text" icon="mdi-plus" @click="ingredient.value++"></v-btn>
+                        <v-btn tabindex="-1" size="small" color="surface-variant" variant="text" icon="mdi-minus" @click="ingredient.value--"></v-btn>
                     </v-card-actions>
                 </v-card>
             </v-col>
@@ -65,8 +65,8 @@
                                 </div>
                             </v-list-item-subtitle>
                             <div style="display: inline-flex; width: 80%;">
-                                <v-checkbox-btn color="orange" tabindex="-1" v-model="wanted" :value="recipe.name" label="wanted" hide-details></v-checkbox-btn>
-                                <v-checkbox-btn color="success" tabindex="-1" v-model="recipe.collected" label="collected" hide-details></v-checkbox-btn>
+                                <v-checkbox-btn color="orange" tabindex="index_recipeCategory * 2 + 1000" v-model="wanted" :value="recipe.name" label="wanted" hide-details></v-checkbox-btn>
+                                <v-checkbox-btn color="success" tabindex="index_recipeCategory * 2 + 1001" v-model="recipe.collected" label="collected" hide-details></v-checkbox-btn>
                             </div>
 
                             <v-divider></v-divider>
