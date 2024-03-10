@@ -90,6 +90,12 @@ export const GetIngredients = () =>  {
             lowercase: 'greengrasssoybeans',
             value: 0,
         },
+        'Greengrass Corn':
+        {
+            name: 'Greengrass Corn',
+            lowercase: 'greengrasscorn',
+            value: 0,
+        },
 
     };
 
@@ -264,6 +270,29 @@ export const GetRecipes = () =>  {
                 'Fancy Egg': 4,
             },
         },
+        'Limber Corn Stew': {
+            'name': 'Limber Corn Stew',
+            'lowercase': 'limbercornstew',
+            'category': 'Curry',
+            'collected': false,
+            'ingredients': {
+                'Greengrass Corn': 14,
+                'Moomoo Milk': 8,
+                'Soft Potato': 8,
+            },
+        },
+        'Inferno Corn Keema Curry': {
+            'name': 'Inferno Corn Keema Curry',
+            'lowercase': 'infernocornkeemacurry',
+            'category': 'Curry',
+            'collected': false,
+            'ingredients': {
+                'Fiery Herb': 27,
+                'Bean Sausage': 24,
+                'Greengrass Corn': 14,
+                'Warming Ginger': 12,
+            },
+        },
     };
 
     const Salad = {
@@ -435,6 +464,39 @@ export const GetRecipes = () =>  {
                 'Fiery Herb': 6,
             },
         },
+        'Greengrass Salad': {
+            'name': 'Greengrass Salad',
+            'lowercase': 'greengrasssalad',
+            'category': 'Salad',
+            'collected': false,
+            'ingredients': {
+                'Pure Oil': 22,
+                'Greengrass Corn': 17,
+                'Snoozy Tomato': 14,
+                'Soft Potato': 9,
+            },
+        },
+        'Calm Mind Fruit Salad': {
+            'name': 'Calm Mind Fruit Salad',
+            'lowercase': 'calmmindfruitsalad',
+            'category': 'Salad',
+            'collected': false,
+            'ingredients': {
+                'Fancy Apple': 21,
+                'Honey': 16,
+                'Greengrass Corn': 12,
+            },
+        },
+        'Fury Attack Corn Salad': {
+            'name': 'Fury Attack Corn Salad',
+            'lowercase': 'furyattackcornsalad',
+            'category': 'Salad',
+            'collected': false,
+            'ingredients': {
+                'Greengrass Corn': 9,
+                'Pure Oil': 8,
+            },
+        },
     };
 
     const Dessert = {
@@ -603,6 +665,51 @@ export const GetRecipes = () =>  {
                 'Pure Oil': 9,
                 'Greengrass Soybeans': 6,
                 'Soothing Cacao': 7,
+            },
+        },
+        'Explosion Popcorn': {
+            'name': 'Explosion Popcorn',
+            'lowercase': 'explosionpopcorn',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Greengrass Corn': 15,
+                'Pure Oil': 14,
+                'Moomoo Milk': 7,
+            },
+        },
+        'Teatime Corn Scones': {
+            'name': 'Teatime Corn Scones',
+            'lowercase': 'teatimecornscones',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Fancy Apple': 20,
+                'Warming Ginger': 20,
+                'Greengrass Corn': 18,
+                'Moomoo Milk': 9,
+            },
+        },
+        'Petal Dance Chocolate Tart': {
+            'name': 'Petal Dance Chocolate Tart',
+            'lowercase': 'petaldancechocolatetart',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Fancy Apple': 11,
+                'Warming Ginger': 11,
+            },
+        },
+        'Flower Gift Macarons': {
+            'name': 'Flower Gift Macarons',
+            'lowercase': 'flowergiftmacarons',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Soothing Cacao': 25,
+                'Fancy Egg': 25,
+                'Honey': 17,
+                'Moomoo Milk': 10,
             },
         },
     };
