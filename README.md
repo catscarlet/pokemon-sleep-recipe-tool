@@ -29,7 +29,7 @@ You can click the save button to save your ingredient info into your [Browser's 
 4. Better Typography.
 5. Mobile Compatibility.
 6. Internationalization Support.
-7. Filter checkbox keyboard tabindex support. Related to a vuetify issue: vuetifyjs/vuetify#18223
+7. ~~Filter checkbox keyboard tabindex support. Related to a vuetify issue: vuetifyjs/vuetify#18223.~~ (Fixed in vuetifyjs/vuetify#18940)
 
 ## Development
 
