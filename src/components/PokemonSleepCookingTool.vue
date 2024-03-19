@@ -46,7 +46,7 @@
     <v-container>
         <v-row no-gutters>
             <v-col v-for="(recipeCategory, name, recipes_index) in recipes" :key="recipes_index" cols="12" md="6" lg="4">
-                <v-card>
+                <v-card :title="name + '(' + discovered[name].discovered + '/' + discovered[name].total +')'">
                     <v-list lines="false">
 
                         <v-list-item v-for="(recipe, name, index_recipeCategory) in recipeCategory" :key="index_recipeCategory" :active="recipe.collected" :base-color="recipe.collected ? 'grey' : ''">
@@ -152,6 +152,7 @@ export default {
             autoCalc: true,
             //allRecipes: {},
             recipes: {},
+            discovered: {},
             ingredients: {},
             pot_size: 15,
             sunday_mode: false,
@@ -304,6 +305,17 @@ export default {
                 }
             }
         },
+        calcDiscovered() {
+            for (const recipeCategory in this.recipes) {
+                this.discovered[recipeCategory].discovered = 0;
+
+                for (const recipe in this.recipes[recipeCategory]) {
+                    if (this.recipes[recipeCategory][recipe].collected == true) {
+                        this.discovered[recipeCategory].discovered++;
+                    }
+                }
+            }
+        },
         loadIngredients() {
             let ingredients = GetIngredients();
             this.ingredients = ingredients;
@@ -323,6 +335,16 @@ export default {
             }
 
             this.recipes = recipes;
+
+            let discovered = {};
+            for (const recipeCategory in recipes) {
+                discovered[recipeCategory] = {
+                    discovered: 0,
+                    total: Object.keys(recipes[recipeCategory]).length,
+                };
+            }
+
+            this.discovered = discovered;
         },
     },
     beforeMount() {
@@ -336,6 +358,14 @@ export default {
             handler(new_val, old_val) {
                 if (this.autoCalc) {
                     this.calc();
+                }
+            },
+            deep: true,
+        },
+        recipes: {
+            handler(new_val, old_val) {
+                if (this.autoCalc) {
+                    this.calcDiscovered();
                 }
             },
             deep: true,
