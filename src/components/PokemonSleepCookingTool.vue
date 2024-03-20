@@ -52,18 +52,16 @@
                         <v-list-item v-for="(recipe, name, index_recipeCategory) in recipeCategory" :key="index_recipeCategory" :active="recipe.collected" :base-color="recipe.collected ? 'grey' : ''">
 
                             <v-list-item-title>
-
                                 <Dish :recipe="recipe" :able="recipe.able" :collected="recipe.collected"/>
-
                             </v-list-item-title>
 
                             <v-list-item-subtitle>
                                 <div v-for="(recipe_value, recipe_ingredient, index_ingredients) in recipe.ingredients" :key="index_ingredients">
-
                                     <Ingredient :ingredient_recipe_value="recipe_value" :ingredient_name="recipe_ingredient" :ingredients="ingredients" :collected="recipe.collected"/>
-
                                 </div>
                             </v-list-item-subtitle>
+
+
                             <div style="display: inline-flex; width: 80%;">
                                 <v-checkbox-btn color="orange" tabindex="index_recipeCategory * 2 + 1000" v-model="wanted" :value="recipe.name" label="wanted" hide-details></v-checkbox-btn>
                                 <v-checkbox-btn color="success" tabindex="index_recipeCategory * 2 + 1001" v-model="recipe.collected" label="collected" hide-details></v-checkbox-btn>
@@ -72,8 +70,6 @@
                             <v-divider></v-divider>
 
                         </v-list-item>
-
-
 
                     </v-list>
                 </v-card>
@@ -269,21 +265,6 @@ export default {
             this.requiredRecipes = requiredRecipes;
             this.requiredIngredients = requiredIngredientsTrim;
         },
-        /*
-        getRecipeClass(able) {
-            console.log('getRecipeClass');
-            console.log(able);
-            if (able) {
-                return 'able';
-            } else {
-                if (this.showAll) {
-                    return 'unable';
-                } else {
-                    return 'hide';
-                }
-            }
-        },
-        */
         calc() {
             //this.recipes[recipeCategory][recipe].able
             //1 able
