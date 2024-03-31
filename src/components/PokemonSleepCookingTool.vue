@@ -2,6 +2,9 @@
 <div>
 
     <v-system-bar>
+
+        <v-card-text class="ms-2">Pokemon Sleep Recipe Tool</v-card-text>
+
         <a :href="homepage" tabindex="1" target="_blank" rel="noopener">Homepage</a>
 
         <v-btn size="small" variant="outlined" color="primary" @click="save" tabindex="2">save</v-btn>
