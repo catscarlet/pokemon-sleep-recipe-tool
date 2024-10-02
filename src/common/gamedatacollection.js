@@ -96,7 +96,12 @@ export const GetIngredients = () =>  {
             lowercase: 'greengrasscorn',
             value: 0,
         },
-
+        'Rousing Coffee':
+        {
+            name: 'Rousing Coffee',
+            lowercase: 'rousingcoffee',
+            value: 0,
+        },
     };
 
     return ingredients;
@@ -291,6 +296,29 @@ export const GetRecipes = () =>  {
                 'Bean Sausage': 24,
                 'Greengrass Corn': 14,
                 'Warming Ginger': 12,
+            },
+        },
+        'Dizzy Punch Spicy Curry': {
+            'name': 'Dizzy Punch Spicy Curry',
+            'lowercase': 'dizzypunchspicycurry',
+            'category': 'Curry',
+            'collected': false,
+            'ingredients': {
+                'Rousing Coffee': 11,
+                'Fiery Herb': 11,
+                'Honey': 11,
+            },
+        },
+        'Hidden Power Perk-Up Stew': {
+            'name': 'Hidden Power Perk-Up Stew',
+            'lowercase': 'hiddenpowerperkupstew',
+            'category': 'Curry',
+            'collected': false,
+            'ingredients': {
+                'Greengrass Soybeans': 28,
+                'Snoozy Tomato': 25,
+                'Tasty Mushroom': 23,
+                'Rousing Coffee': 16,
             },
         },
     };
@@ -495,6 +523,30 @@ export const GetRecipes = () =>  {
             'ingredients': {
                 'Greengrass Corn': 9,
                 'Pure Oil': 8,
+            },
+        },
+        'Cross Chop Salad': {
+            'name': 'Cross Chop Salad',
+            'lowercase': 'crosschopsalad',
+            'category': 'Salad',
+            'collected': false,
+            'ingredients': {
+                'Fancy Egg': 20,
+                'Bean Sausage': 15,
+                'Greengrass Corn': 11,
+                'Snoozy Tomato': 10,
+            },
+        },
+        'Defiant Coffee-Dressed Salad': {
+            'name': 'Defiant Coffee-Dressed Salad',
+            'lowercase': 'defiantcoffeedressedsalad',
+            'category': 'Salad',
+            'collected': false,
+            'ingredients': {
+                'Rousing Coffee': 28,
+                'Bean Sausage': 28,
+                'Pure Oil': 22,
+                'Soft Potato': 22,
             },
         },
     };
@@ -710,6 +762,29 @@ export const GetRecipes = () =>  {
                 'Fancy Egg': 25,
                 'Honey': 17,
                 'Moomoo Milk': 10,
+            },
+        },
+        'Early Bird Coffee Jelly': {
+            'name': 'Early Bird Coffee Jelly',
+            'lowercase': 'earlybirdcoffeejelly',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Rousing Coffee': 16,
+                'Moomoo Milk': 14,
+                'Honey': 12,
+            },
+        },
+        'Zing Zap Spiced Cola': {
+            'name': 'Zing Zap Spiced Cola',
+            'lowercase': 'zingzapspicedcola',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Fancy Apple': 35,
+                'Warming Ginger': 20,
+                'Large Leek': 20,
+                'Rousing Coffee': 12,
             },
         },
     };
