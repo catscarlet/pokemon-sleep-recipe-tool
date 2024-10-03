@@ -10,7 +10,9 @@ _This project is still **WIP** and may change a lot._
 
 ## Screenshot
 
-![Screenshot](Screenshot.png)
+![Screenshot_preview](Screenshot_preview.png)
+
+![Screenshot_recipes](Screenshot_recipes.png)
 
 ![Screenshot_wanted](Screenshot_wanted.png)
 
