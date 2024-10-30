@@ -449,7 +449,7 @@ export const GetRecipes = () =>  {
             'collected': false,
             'ingredients': {
                 'Large Leek': 15,
-                'Greengrass Soybeans': 15,
+                'Greengrass Soybeans': 19,
                 'Tasty Mushroom': 12,
                 'Warming Ginger': 11,
             },
