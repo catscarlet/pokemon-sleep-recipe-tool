@@ -237,9 +237,9 @@ export const GetRecipes = () =>  {
             'category': 'Curry',
             'collected': false,
             'ingredients': {
-                'Greengrass Soybeans': 15,
+                'Greengrass Soybeans': 24,
                 'Bean Sausage': 9,
-                'Large Leek': 9,
+                'Large Leek': 12,
                 'Tasty Mushroom': 5,
             },
         },
