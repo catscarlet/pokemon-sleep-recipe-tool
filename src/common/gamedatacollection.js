@@ -787,6 +787,29 @@ export const GetRecipes = () =>  {
                 'Rousing Coffee': 12,
             },
         },
+        'Mold Breaker Corn Tiramisu': {
+            'name': 'Mold Breaker Corn Tiramisu',
+            'lowercase': 'moldbreakercorntiramisu',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Rousing Coffee': 14,
+                'Greengrass Corn': 14,
+                'Moomoo Milk': 12,
+            },
+        },
+        'Clodsire Eclair': {
+            'name': 'Clodsire Eclair',
+            'lowercase': 'clodsireeclair',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Soothing Cacao': 30,
+                'Moomoo Milk': 26,
+                'Rousing Coffee': 24,
+                'Honey': 22,
+            },
+        },
     };
 
     const Recipes = {
