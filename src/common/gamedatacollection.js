@@ -549,6 +549,30 @@ export const GetRecipes = () =>  {
                 'Soft Potato': 22,
             },
         },
+        'Petal Blizzard Layered Salad': {
+            'name': 'Petal Blizzard Layered Salad',
+            'lowercase': 'petalblizzardlayeredsalad',
+            'category': 'Salad',
+            'collected': false,
+            'ingredients': {
+                'Fancy Egg': 25,
+                'Pure Oil': 17,
+                'Soft Potato': 15,
+                'Bean Sausage': 12,
+            },
+        },
+        'Apple Acid Yogurt-Dressed Salad': {
+            'name': 'Apple Acid Yogurt-Dressed Salad',
+            'lowercase': 'appleacidyogurtdressedsalad',
+            'category': 'Salad',
+            'collected': false,
+            'ingredients': {
+                'Fancy Egg': 35,
+                'Fancy Apple': 28,
+                'Snoozy Tomato': 23,
+                'Moomoo Milk': 18,
+            },
+        },
     };
 
     const Dessert = {
