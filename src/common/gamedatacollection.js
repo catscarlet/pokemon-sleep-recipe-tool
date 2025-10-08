@@ -321,6 +321,19 @@ export const GetRecipes = () =>  {
                 'Rousing Coffee': 16,
             },
         },
+        'Cut Sukiyaki Curry': {
+            'name': 'Cut Sukiyaki Curry',
+            'lowercase': 'cutsukiyakicurry',
+            'category': 'Curry',
+            'collected': false,
+            'ingredients': {
+                'Large Leek': 27,
+                'Bean Sausage': 26,
+                'Honey': 26,
+                'Fancy Egg': 22,
+            },
+        },
+
     };
 
     const Salad = {
