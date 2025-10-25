@@ -102,6 +102,12 @@ export const GetIngredients = () =>  {
             lowercase: 'rousingcoffee',
             value: 0,
         },
+        'Plump Pumpkin':
+        {
+            name: 'Plump Pumpkin',
+            lowercase: 'plumppumpkin',
+            value: 0,
+        },
     };
 
     return ingredients;
@@ -333,7 +339,18 @@ export const GetRecipes = () =>  {
                 'Fancy Egg': 22,
             },
         },
-
+        'Role Play Pumpkaboo Stew': {
+            'name': 'Role Play Pumpkaboo Stew',
+            'lowercase': 'roleplaypumpkaboostew',
+            'category': 'Curry',
+            'collected': false,
+            'ingredients': {
+                'Plump Pumpkin': 10,
+                'Bean Sausage': 16,
+                'Soft Potato': 18,
+                'Tasty Mushroom': 25,
+            },
+        },
     };
 
     const Salad = {
@@ -845,6 +862,18 @@ export const GetRecipes = () =>  {
                 'Moomoo Milk': 26,
                 'Rousing Coffee': 24,
                 'Honey': 22,
+            },
+        },
+        'Scary Face Pancakes': {
+            'name': 'Scary Face Pancakes',
+            'lowercase': 'scaryfacepancakes',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Plump Pumpkin': 18,
+                'Fancy Egg': 24,
+                'Honey': 32,
+                'Snoozy Tomato': 29,
             },
         },
     };
