@@ -108,6 +108,12 @@ export const GetIngredients = () =>  {
             lowercase: 'plumppumpkin',
             value: 0,
         },
+        'Glossy Avocado':
+        {
+            name: 'Glossy Avocado',
+            lowercase: 'glossyavocado',
+            value: 0,
+        },
     };
 
     return ingredients;
@@ -349,6 +355,18 @@ export const GetRecipes = () =>  {
                 'Bean Sausage': 16,
                 'Soft Potato': 18,
                 'Tasty Mushroom': 25,
+            },
+        },
+        'Overgrow Avocado Gratin': {
+            'name': 'Overgrow Avocado Gratin',
+            'lowercase': 'overgrowavocadogratin',
+            'category': 'Curry',
+            'collected': false,
+            'ingredients': {
+                'Glossy Avocado': 22,
+                'Soft Potato': 20,
+                'Moomoo Milk': 41,
+                'Pure Oil': 32,
             },
         },
     };
@@ -601,6 +619,29 @@ export const GetRecipes = () =>  {
                 'Fancy Apple': 28,
                 'Snoozy Tomato': 23,
                 'Moomoo Milk': 18,
+            },
+        },
+        'Luscious Avocado Salad': {
+            'name': 'Luscious Avocado Salad',
+            'lowercase': 'lusciousavocadosalad',
+            'category': 'Salad',
+            'collected': false,
+            'ingredients': {
+                'Glossy Avocado': 14,
+                'Greengrass Soybeans': 18,
+                'Pure Oil': 10,
+            },
+        },
+        'Bulldoze Guacamole and Chips': {
+            'name': 'Bulldoze Guacamole and Chips',
+            'lowercase': 'bulldozeguacamoleandchips',
+            'category': 'Salad',
+            'collected': false,
+            'ingredients': {
+                'Glossy Avocado': 28,
+                'Greengrass Corn': 25,
+                'Fiery Herb': 30,
+                'Greengrass Soybeans': 22,
             },
         },
     };
@@ -874,6 +915,17 @@ export const GetRecipes = () =>  {
                 'Fancy Egg': 24,
                 'Honey': 32,
                 'Snoozy Tomato': 29,
+            },
+        },
+        'Leaf Tornado Smoothie': {
+            'name': 'Leaf Tornado Smoothie',
+            'lowercase': 'leaftornadosmoothie',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Glossy Avocado': 18,
+                'Snoozy Tomato': 16,
+                'Moomoo Milk': 14,
             },
         },
     };
