@@ -928,6 +928,18 @@ export const GetRecipes = () =>  {
                 'Moomoo Milk': 14,
             },
         },
+        'Honey Gather Chocolate Waffles': {
+            'name': 'Honey Gather Chocolate Waffles',
+            'lowercase': 'honeygatherchocolatewaffles',
+            'category': 'Dessert',
+            'collected': false,
+            'ingredients': {
+                'Honey': 38,
+                'Greengrass Corn': 28,
+                'Pure Oil': 28,
+                'Soothing Cacao': 21,
+            },
+        },
     };
 
     const Recipes = {
