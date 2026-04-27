@@ -644,6 +644,18 @@ export const GetRecipes = () =>  {
                 'Greengrass Soybeans': 22,
             },
         },
+        'Scald Chunky Salad': {
+            'name': 'Scald Chunky Salad',
+            'lowercase': 'scaldchunkysalad',
+            'category': 'Salad',
+            'collected': false,
+            'ingredients': {
+                'Plump Pumpkin': 20,
+                'Soft Potato': 30,
+                'Greengrass Corn': 18,
+                'Tasty Mushroom': 27,
+            },
+        },
     };
 
     const Dessert = {
