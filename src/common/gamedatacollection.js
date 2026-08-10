@@ -369,6 +369,30 @@ export const GetRecipes = () =>  {
                 'Pure Oil': 32,
             },
         },
+        'Greengrass Curry Bun': {
+            'name': 'Greengrass Curry Bun',
+            'lowercase': 'greengrasscurrybun',
+            'category': 'Curry',
+            'collected': false,
+            'ingredients': {
+                'Warming Ginger': 20,
+                'Fiery Herb': 20,
+                'Greengrass Soybeans': 8,
+                'Pure Oil': 15,
+            },
+        },
+        'Bounce Curry Udon': {
+            'name': 'Bounce Curry Udon',
+            'lowercase': 'bouncecurryudon',
+            'category': 'Curry',
+            'collected': false,
+            'ingredients': {
+                'Warming Ginger': 39,
+                'Tasty Mushroom': 31,
+                'Fiery Herb': 22,
+                'Bean Sausage': 20,
+            },
+        },
     };
 
     const Salad = {
