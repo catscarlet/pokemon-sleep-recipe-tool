@@ -35,6 +35,11 @@ You can click the save button to save your ingredient info into your [Browser's 
 
 ## Development
 
+### Requirement
+
+- **Node 24** is recommended.
+- yarn 1.22.22 recommended.
+
 ### Setup
 
 ```
